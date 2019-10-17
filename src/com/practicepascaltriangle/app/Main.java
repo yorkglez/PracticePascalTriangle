@@ -2,8 +2,10 @@ package com.practicepascaltriangle.app;
 
 import java.util.Scanner;
 
-/*
-    @autor: york
+/**
+ *
+ *
+ *  @autor: york
 */
 public class Main
 {
@@ -13,15 +15,22 @@ public class Main
         int numberRows = 0;
         int numberColumns = 1;
         int number = 0;
+        char response = 'y';
 
-        //Object declaration
+        //Object construction
         Scanner in = new Scanner(System.in);
 
         //Input number from user
         do
             {
             System.out.print("Write number of lines: ");
-                numberRows = in.nextInt();
+            numberRows = in.nextInt();
+
+            //validate input
+            if(numberRows < 1)
+            {
+                System.out.println("You must enter a number greater than 0!!");
+            }
 
             //Pascal Triangle algorithm
             for (int row = 0; row < numberRows; row++)
@@ -35,7 +44,13 @@ public class Main
                 System.out.println();
             }
 
-        }while(numberRows >0);
+            //Ask the user
+            System.out.println("do you want to enter a new number (y/n)?");
+            response = in.next().charAt(0);
 
+        }while(response == 'y');
+
+        //Close input
+        in.close();
     }
 }
