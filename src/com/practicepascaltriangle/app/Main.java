@@ -15,6 +15,7 @@ public class Main
         int numberRows = 0;
         int numberColumns = 1;
         int number = 0;
+        int spacesNumber = 0;
         char response = 'y';
 
         //Object construction
@@ -32,16 +33,25 @@ public class Main
                 System.out.println("You must enter a number greater than 0!!");
             }
 
+            spacesNumber = numberRows;
+
             //Pascal Triangle algorithm
             for (int row = 0; row < numberRows; row++)
             {
                 number = 1;
+
+                //Create spaces
+                for(int h = 1; h <= spacesNumber; h++){
+                    System.out.print(" ");
+                }
                 for (int colum = 0; colum <= row; colum++)
                 {
                    System.out.print(number + " ");
                    number = number * (row - colum) / (colum + 1);
                 }
+
                 System.out.println();
+                spacesNumber--;
             }
 
             //Ask the user
